@@ -1,0 +1,109 @@
+import mysql.connector
+
+
+con = mysql.connector.connect(
+    user="root",
+    password="Swayam@2006",
+    host="localhost",
+    port=3306,
+    database="giet"
+
+)
+if con.is_connected():
+    print("connected")
+
+cur=con.cursor()   
+cur.execute("show databases")
+for x in cur:
+    print(x)
+
+cur.execute("show tables")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu")
+for x in cur:
+    print(x)
+    
+cur.execute("select name from gietu")
+for x in cur:
+    print(x)
+    
+cur.execute("select name,address from gietu")
+for x in cur:
+    print(x)
+    
+cur.execute("select roll,salary from gietu")
+for x in cur:
+    print(x)
+
+cur.execute("select * from gietu where name='aman'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where address='delhi'")
+for x in cur:
+    print(x)
+       
+cur.execute("select * from gietu where gender='m'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where desig='doctor'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where salary=15000")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where salary > 20000")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where salary < 30000")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where gender='m' and salary>20000")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where gender='f' or address='raipur'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where name like 'a%'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where name like '%h'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu where address like '%pur%'")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu order by name asc")
+for x in cur:
+    print(x)
+    
+cur.execute("select * from gietu order by salary desc")
+for x in cur:
+    print(x)
+    
+cur.execute("select count(*) from gietu")
+for x in cur:
+    print(x)
+
+cur.execute("select count(*) from gietu where gender='m'")
+for x in cur:
+    print(x)
+    
+cur.close()
+con.close()
